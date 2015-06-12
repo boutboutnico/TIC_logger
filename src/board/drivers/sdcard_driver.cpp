@@ -11,7 +11,6 @@ using namespace board::mcu;
 /// === Includes	================================================================================
 
 #include <assert.h>
-
 #include "diag/Trace.h"
 
 /// === Static Definitions	========================================================================
@@ -42,7 +41,7 @@ bool SDCardDriver::write(uint8_t _data)
 		return false;
 	}
 
-	if (SEM_SPI.take(200) == false)
+	if (SEM_SPI.take(femtin::unit::millisecond(200)) == false)
 	{
 		while (1)
 		{
@@ -64,7 +63,7 @@ bool SDCardDriver::write(const uint8_t* _data, size_t _len)
 		return false;
 	}
 
-	if (SEM_SPI.take(200) == false)
+	if (SEM_SPI.take(femtin::unit::millisecond(200)) == false)
 	{
 		while (1)
 		{
@@ -84,7 +83,7 @@ bool SDCardDriver::read(uint8_t* _data, size_t _len)
 		return false;
 	}
 
-	if (SEM_SPI.take(200) == false)
+	if (SEM_SPI.take(femtin::unit::millisecond(200)) == false)
 	{
 		while (1)
 		{

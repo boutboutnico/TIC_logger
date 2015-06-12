@@ -44,7 +44,7 @@ private:
 	/// === Private Attributes	====================================================================
 
 	UART_HandleTypeDef UART_handle_;
-	os::Semaphore SEM_UART;
+	femtin::os::Semaphore SEM_UART;
 };
 /// === Inlines Definitions	========================================================================
 

@@ -33,14 +33,14 @@ namespace trace
 /// ===
 
 static TraceDriver* ptrace_driver;
-static os::Mutex* pMUT_trace;
+static femtin::os::Mutex* pMUT_trace;
 
 /// === Public Definitions	========================================================================
 
 void trace_initialize()
 {
 	static TraceDriver trace_driver;
-	static os::Mutex MUT_trace;
+	static femtin::os::Mutex MUT_trace;
 
 	ptrace_driver = &trace_driver;
 	pMUT_trace = &MUT_trace;
@@ -50,7 +50,7 @@ void trace_initialize()
 
 void trace_putc(const char _c)
 {
-	femtin::Guard<os::Mutex> guard(*pMUT_trace);
+	femtin::Guard<femtin::os::Mutex> guard(*pMUT_trace, femtin::unit::millisecond(200));
 
 	ptrace_driver->write(&_c, 1);
 }
@@ -59,7 +59,7 @@ void trace_putc(const char _c)
 
 void trace_puts(const char* _s)
 {
-	femtin::Guard<os::Mutex> guard(*pMUT_trace);
+	femtin::Guard<femtin::os::Mutex> guard(*pMUT_trace, femtin::unit::millisecond(200));
 
 	ptrace_driver->write(_s, strlen(_s));
 	ptrace_driver->write("\n", 1);
@@ -69,7 +69,7 @@ void trace_puts(const char* _s)
 
 void trace_printf(const char* format, ...)
 {
-	femtin::Guard<os::Mutex> guard(*pMUT_trace);
+	femtin::Guard<femtin::os::Mutex> guard(*pMUT_trace, femtin::unit::millisecond(200));
 
 	va_list ap;
 	va_start(ap, format);

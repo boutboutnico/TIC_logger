@@ -95,7 +95,7 @@ void TICReaderTask::run()
 
 	for (;;)
 	{
-		notification_value = os::notifyTake(true, 5000);
+		notification_value = femtin::os::notifyTake(true, femtin::unit::millisecond(5000));
 
 		if (notification_value == 1)
 		{
@@ -148,7 +148,7 @@ void TICReaderTask::update(const TICDriver_Data& _data) const
 		{
 			rbuf_rx_.add<uint8_t>(_data.array_ptr_[i]);
 		}
-		os::notifyGiveISR(handle());
+		femtin::os::notifyGiveISR(handle());
 	}
 }
 

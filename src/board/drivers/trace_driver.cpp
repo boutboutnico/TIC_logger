@@ -30,7 +30,7 @@ void TraceDriver::write(const char* _buf, size_t _size)
 		board::led::LED_Red.on();
 	}
 
-	if (SEM_UART.take(200) == false)
+	if (SEM_UART.take(femtin::unit::millisecond(200)) == false)
 	{
 		while (1)
 		{

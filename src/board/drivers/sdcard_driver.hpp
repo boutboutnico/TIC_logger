@@ -53,7 +53,7 @@ private:
 
 	/// === Private Attributes	====================================================================
 
-	os::Semaphore SEM_SPI;
+	femtin::os::Semaphore SEM_SPI;
 };
 
 /// === Inlines Definitions	========================================================================
