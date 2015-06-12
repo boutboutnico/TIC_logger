@@ -1,0 +1,19 @@
+- Use DMA
+- Init driver in Constructor
+- Check ARM activated modules (compilation define)
+- Do UART RS232 debug trace
+- analyse task load
+- analyse task memory
+- Switch from tic standard to history (speed and trame format)
+- Change extension file from .h to .hpp
+
+=== Done	========================================================================================
+
+- add namespace to data_link
+- Increase SPI speed after init
+- Create component architecture
+- move sd_card to board
+- Create folder external
+- Create folder application
+- Import SDcard driver
+
